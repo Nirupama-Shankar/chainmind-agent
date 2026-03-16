@@ -74,3 +74,94 @@ Governance Dashboard
 ---
 
 ## Project Structure
+
+chainmind-agent
+│
+├── backend
+│ └── app.py
+│
+├── frontend
+│ └── index.html
+│
+├── contracts
+│ └── DAOProposal.sol
+│
+└── README.md
+
+---
+
+## How to Run the Project
+
+### 1. Start Blockchain Network
+
+cd contracts
+npx hardhat node
+
+---
+
+### 2. Deploy Smart Contract
+
+npx hardhat ignition deploy ignition/modules/DAOProposal.ts --network localhost
+
+Copy the deployed contract address.
+
+---
+
+### 3. Start Backend Server
+
+cd backend
+source venv/bin/activate
+python app.py
+
+Backend runs at:
+
+http://127.0.0.1:5000
+
+---
+
+### 4. Start Frontend
+
+cd frontend
+python3 -m http.server 5500
+
+Open:
+
+http://localhost:5500
+
+---
+
+## Demo Workflow
+
+1. Enter a DAO scenario
+2. Generate AI governance proposal
+3. Submit proposal to blockchain
+4. View proposals stored on-chain
+
+---
+
+## Example Demo Scenario
+
+A vulnerability has been discovered in a DeFi protocol smart contract.
+The DAO must decide whether to pause the protocol and conduct a security audit.
+
+---
+
+## Future Improvements
+
+- DAO voting system
+- Real-time DeFi risk monitoring
+- Advanced AI risk scoring
+- Voice interaction with the governance agent
+
+---
+
+## Author
+
+Nirupama S  
+PSG College of Technology
+
+---
+
+## Hackathon Submission
+
+This project was created for the **Gemini Live Agent Challenge**, demonstrating how AI agents can assist decentralized governance systems.
