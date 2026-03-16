@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-3143eb99c523bf84a1f20bfcd39f46b2ddf5ec83",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/DAOProposal.sol": "project/contracts/DAOProposal.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/DAOProposal.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract DAOProposal {\n\n    struct Proposal {\n        uint id;\n        string description;\n        uint voteCount;\n    }\n\n    uint public proposalCount;\n\n    mapping(uint => Proposal) public proposals;\n\n    function createProposal(string memory _description) public {\n        proposalCount++;\n\n        proposals[proposalCount] = Proposal(\n            proposalCount,\n            _description,\n            0\n        );\n    }\n\n    function vote(uint _proposalId) public {\n        proposals[_proposalId].voteCount++;\n    }\n}"
+      }
+    }
+  }
+}
